@@ -9,6 +9,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useState } from 'react';
 import Pressable from 'react-native';
 
+//comentario tonto
+
 function HomeScreen({ navigation }) {
   return (
     <View style={pantalla.base}>
