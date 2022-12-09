@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
@@ -29,7 +29,18 @@ function IngresarScreen({ navigation }) {
   return (
     <View style={pantalla.base}>
       <Text style={[texto.titulo, { marginBottom: 75 }]}>INICIO DE SESIÓN</Text>
-      <Text>Número celular o No. de usuario</Text>
+      <View>
+        <Text style={texto.texto}>Número celular o No. de usuario</Text>
+        <TextInput
+          placeholder='ej: (662)-290-9812    ó    0001 - 23'
+          style={texto.escribir}
+        />
+        <Text style={texto.texto}>Contraseña</Text>
+        <TextInput
+          placeholder='*********'
+          style={texto.escribir}
+        />
+      </View>
       <View style={botones.continuar}>
         <Button
           title='Continuar   →'
@@ -62,8 +73,7 @@ function DificultadesScreen({ navigation }) {
       <View style={botones.continuar}>
         <Button
           title='Continuar   →'
-          //** MODIFICAR */ Debe llevar a lo siguiente del formulario
-          onPress={() => navigation.push('**')} />
+          onPress={() => navigation.push('Loading')} />
       </View>
     </View>
   );
@@ -91,5 +101,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-

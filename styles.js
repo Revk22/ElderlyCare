@@ -23,6 +23,20 @@ const texto = StyleSheet.create({
         width: 170,
         height: 170,
         marginBottom: 70,
+    },
+    texto: {
+        textAlign: 'left',
+        //marginLeft: 11,
+        fontSize: 18,
+    },
+    escribir: {
+        marginTop: 15,
+        marginBottom: 15,
+        height: 35,
+        width: 270,
+        backgroundColor: '#DAE4EC',
+        borderRadius: 20,
+        paddingLeft: 20
     }
 });
 
