@@ -5,6 +5,12 @@ const pantalla = StyleSheet.create({
         flex: 1, 
         alignItems: 'center', 
         backgroundColor: 'white' 
+    },
+    frame: {
+        marginTop: 25,
+        backgroundColor: 'lightblue',
+        width: 400,
+        height: 80
     }
 });
 
@@ -16,6 +22,13 @@ const texto = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'sans-serif'   
         //fontFamily: 'Lexend Peta' //No deja
+    },
+    subtitulo: {
+        textAlign: 'center',
+        fontSize: 18,
+        marginTop: 10,
+        marginHorizontal: 35,
+        fontFamily: 'sans-serif'   
     },
     imagen: {
         borderRadius: 150,
@@ -42,7 +55,7 @@ const texto = StyleSheet.create({
 
 const botones = StyleSheet.create({
     inicio: {
-        marginTop: 45,
+        marginTop: 35,
         width: 180,
         //marginBottom: 45,
     },
@@ -50,6 +63,17 @@ const botones = StyleSheet.create({
         position: 'absolute',
         right: 35,
         bottom: 50,
+    },
+    texto: {
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        borderRadius: 10,
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'white',
+        backgroundColor: '#3DA9FC',//'rgb(61, 169, 252, 0.2)',//'#3DA9FC',
+        width: 180,
+        height: 42,
     }
 });
 
