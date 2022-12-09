@@ -9,7 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useState } from 'react';
 import Pressable from 'react-native';
 
-//comentario tonto
+//comentario tonto si cierto jajajaja
 
 function HomeScreen({ navigation }) {
   return (
