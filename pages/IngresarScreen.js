@@ -6,17 +6,20 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useState } from 'react';
 
 function IngresarScreen({ navigation }) {
-    const [textoBasico, setTextoBasico] = useState('salida con texto');
-    const [textoPassword, setTextoPassword] = useState('holahola');
+    const [textoNumerico, setTextoNumerico] = useState('');
+    const [textoPassword, setTextoPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    
     return (
-      <View style={pantalla.base}>
+        <View style={pantalla.base}>
         <Text style={[texto.titulo, { marginBottom: 75 }]}>INICIO DE SESIÓN</Text>
         <View>
           <Text style={texto.texto}>Número celular o No. de usuario</Text>
           <TextInput
             placeholder='ej: (662)-290-9812    ó    0001 - 23'
             style={texto.escribir}
-            onChangeText={(text) => setTextoBasico(text)}
+            onChangeText={(text) => setTextoNumerico(text)}
+            keyboardType='numeric'
           />
           <Text style={texto.texto}>Contraseña</Text>
           <View>
@@ -24,16 +27,17 @@ function IngresarScreen({ navigation }) {
               placeholder='*********'
               style={texto.escribir}
               onChangeText={(text) => setTextoPassword(text)}
-              secureTextEntry
+              password={true}
+              secureTextEntry={!showPassword}
             />
-            <Ionicons
-              name={iconName}
-              style={{ position: 'absolute', left: 230, top: 25 }} />
+             <Ionicons
+                  name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+                  style={{ position: 'absolute', left: 230, top: 25 }}
+                  onPress={() => setShowPassword(!showPassword)} />
           </View>
         </View>
         <View>
           <TouchableOpacity style={botones.inicio}
-            //** MODIFICAR */ Debe llevar al menú
             onPress={() => navigation.push('Menú')}>
             <Text style={[botones.texto, { marginTop: 35 }]}>INICIAR SESIÓN</Text>
           </TouchableOpacity>
@@ -41,12 +45,5 @@ function IngresarScreen({ navigation }) {
       </View>
     );
   }
-
-  let iconName = '';
-if (iconName = true) {
-  iconName = 'eye-outline';
-} else if (iconName = false) {
-  iconName = 'eye-off-outline';
-}
 
 export default IngresarScreen;
