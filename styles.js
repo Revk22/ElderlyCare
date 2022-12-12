@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 const pantalla = StyleSheet.create({
     base: {
-        flex: 1, 
-        alignItems: 'center', 
-        backgroundColor: 'white' 
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: 'white'
     },
     frame: {
         marginTop: 25,
@@ -18,9 +18,9 @@ const texto = StyleSheet.create({
     titulo: {
         textAlign: 'center',
         fontSize: 30,
-        marginTop: 50,    
+        marginTop: 50,
         fontWeight: 'bold',
-        fontFamily: 'sans-serif'   
+        fontFamily: 'sans-serif'
         //fontFamily: 'Lexend Peta' //No deja
     },
     subtitulo: {
@@ -28,7 +28,7 @@ const texto = StyleSheet.create({
         fontSize: 18,
         marginTop: 10,
         marginHorizontal: 35,
-        fontFamily: 'sans-serif'   
+        fontFamily: 'sans-serif'
     },
     imagen: {
         borderRadius: 150,
@@ -52,7 +52,24 @@ const texto = StyleSheet.create({
         paddingLeft: 20
     }
 });
+/*
+const datepicker = StyleSheet.create({
+    datePickerContainer: {
+        width: 260,
+        margin: 20,
+    },
+    datePickerLabel: {
+        fontSize: 18,
+        fontWeight: "bold"
+    },
+    fecha: {
+        fontSize: 20,
+        backgroundColor: "darkblue",
+        color: 'lightblue'
+    }
 
+})
+*/
 const botones = StyleSheet.create({
     inicio: {
         marginTop: 35,
@@ -77,4 +94,4 @@ const botones = StyleSheet.create({
     }
 });
 
-export {texto, botones, pantalla};
+export { texto, botones, pantalla };

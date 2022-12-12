@@ -8,6 +8,7 @@ import IngresarScreen from './pages/IngresarScreen';
 import RegisterScreen from './pages/RegisterScreen';
 import DificultadesScreen from './pages/DificultadesScreen';
 import MenuScreen from './pages/MenuScreen';
+import PersonalizacionUsuario from './pages/PersonalizacionUsuario';
 
 const Stack = createStackNavigator();
 //const Menu = createStackNavigator();
@@ -26,6 +27,7 @@ export default function App() {
         <Stack.Screen name="Inicio de Sesión" component={IngresarScreen} />
         <Stack.Screen name='Registrate' component={RegisterScreen} />
         <Stack.Screen name='Dificultades' component={DificultadesScreen} />
+        <Stack.Screen name='PersonalizacionUsuario' component={PersonalizacionUsuario} />
         <Stack.Screen name='Menú' component={MenuScreen} />
       </Stack.Navigator>
       <StatusBar style='auto' />
