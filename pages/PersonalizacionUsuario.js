@@ -4,7 +4,7 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-nativ
 import { texto, botones, pantalla,datepicker } from '../styles';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import RadioButtonRN from 'radio-buttons-react-native';
-
+//Siempre gano en el dutch blitz
 
 function PersonalizacionUsuario({ navigation }) {
     const [textoBasico, setTextoBasico] = useState('salida con texto');
