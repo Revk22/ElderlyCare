@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, FlatList, } from 'react-native';
 import { texto, botones, pantalla } from '../styles';
 import { Card } from 'react-native-paper';
@@ -48,9 +48,8 @@ const Data = [
   },
 ];
 
-
-function DificultadesScreen({ navigation }) {
-
+class DificultadesScreen extends Component {
+//function DificultadesScreen({ navigation }) {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,12 +68,12 @@ function DificultadesScreen({ navigation }) {
     }
     this.setState({ renderData });
   }
-
+  render(){
   return (
 
     <ScrollView>
       <View style={pantalla.base}>
-        <Text style={[texto.titulo, { marginBottom: 20 }]}> IFICULTADES </Text>
+        <Text style={[texto.titulo, { marginBottom: 20 }]}> DIFICULTADES </Text>
         <Text style={texto.subtitulo}>Selecciona cuáles de las siguientes enfermedades padece</Text>
         <Text style={texto.subtitulo}>Es importante conocer sobre tus padecimientos para que la aplicación se adapte a tus necesidades</Text>
 
@@ -109,7 +108,7 @@ function DificultadesScreen({ navigation }) {
                   <Text>{item.first_name}</Text>
                 </Card>
               </TouchableOpacity>
-            )}
+            )} //
           />
         </View>
 
@@ -126,6 +125,7 @@ function DificultadesScreen({ navigation }) {
 
     </ScrollView>
   );
+}
 }
 
 export default DificultadesScreen;

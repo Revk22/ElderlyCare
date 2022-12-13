@@ -23,7 +23,7 @@ function SOSScreen({ navigation }) {
           onPress={() => {
             setTimesPressed((current) => current + 1);
           }}
-          // No me funciona el style :c
+          // No me funciona el style al presionar :c
           style={({ pressed }) => [ 
             {
               backgroundColor: pressed
