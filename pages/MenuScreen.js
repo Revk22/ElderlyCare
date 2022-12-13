@@ -1,22 +1,35 @@
 import 'react-native-gesture-handler';
-import React, { Component } from 'react';
-import { View, Text, Button, Image, TextInput, TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { texto, botones, pantalla } from '../styles';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useState } from 'react';
-import Pressable from 'react-native';
+import Icon from 'react-native-vector-icons/Fontisto';
+//import SosIcon from '@mui/icons-material/Sos'; // ES PARA BOTON DE SOS
 
 function MenuScreen({ navigation }) {
     return (
       <View style={pantalla.base}>
-        <Text style={pantalla.frame}>   </Text>
+        <Text style={[pantalla.frame, {textAlign: 'center', textAlignVertical: 'center'}]}> AQUI VA LA HORA  </Text>
         <Text style={[texto.titulo, { marginBottom: 20 }]}> MENU </Text>
         <Text style={texto.subtitulo}>
           HOLA SOY UN MENU
         </Text>
+        <View>
+        <TouchableOpacity
+        style={[botones.menu, {right: 80}]}
+        onPress={() => navigation.push('Menú SOS')}>
+
+          <Text>Botón de pánico</Text><Text>para emergencias</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+        style={[botones.menu, {left: 80, bottom: 120}]}
+        onPress={() => navigation.push('Menú Contacts')}>
+
+          <Text>Contactos</Text>
+        </TouchableOpacity>
+        <Icon 
+        name={'test-bottle'}
+        style = {{fontSize: 55}} />
+        </View>
       </View>
     );
   }

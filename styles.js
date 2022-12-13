@@ -91,7 +91,44 @@ const botones = StyleSheet.create({
         backgroundColor: '#3DA9FC',//'rgb(61, 169, 252, 0.2)',//'#3DA9FC',
         width: 180,
         height: 42,
-    }
+    },
+    sos: {
+        //flex: 1, 
+        top: 80,
+        alignItems: 'center',
+        justifyContent: 'center', 
+        backgroundColor: '#F41C1C',
+        width: 250,
+        height: 250,
+        borderRadius: 120,
+    },
+    colgar: {
+        alignItems: 'center',
+        justifyContent: 'center', 
+        backgroundColor: '#F41C1C',
+        borderRadius: 120,
+        top: 380
+    },
+    menu: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        weight: 120,
+        height: 120,
+        borderRadius: 30,
+        backgroundColor: '#64BAFC',
+        opacity: 0.7,
+        padding: 20,
+        paddingBottom: 0,
+    },
+    contactos: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 30,
+        backgroundColor: '#64BAFC',
+        opacity: 0.7,
+        padding: 20,
+        paddingBottom: 10,
+    },
 });
 
 export { texto, botones, pantalla };

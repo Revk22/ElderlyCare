@@ -79,7 +79,7 @@ function RegisterScreen({ navigation }) {
                     />
                     <Ionicons
                         name={showPassword ? 'eye-off-outline' : 'eye-outline'}
-                        style={{ position: 'absolute', left: 230, top: 25 }}
+                        style={{ position: 'absolute', left: 220, top: 17, fontSize: 30 }}
                         onPress={() => setShowPassword(!showPassword)} />
                 </View>
                 <Text style={texto.texto}>Confirmar contraseña</Text>
@@ -93,7 +93,7 @@ function RegisterScreen({ navigation }) {
                     />
                     <Ionicons
                         name={showPassword2 ? 'eye-off-outline' : 'eye-outline'}
-                        style={{ position: 'absolute', left: 230, top: 25 }}
+                        style={{ position: 'absolute', left: 220, top: 17, fontSize: 30 }}
                         onPress={() => setShowPassword2(!showPassword2)} />
                 </View>
             </View>

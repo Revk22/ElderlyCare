@@ -1,9 +1,8 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, Button, Image, TextInput, TouchableOpacity } from 'react-native';
 import { texto, botones, pantalla } from '../styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useState } from 'react';
 
 function IngresarScreen({ navigation }) {
     const [userNumber, setUserNumber] = useState('');
@@ -32,7 +31,7 @@ function IngresarScreen({ navigation }) {
                     />
                     <Ionicons
                         name={showPassword ? 'eye-off-outline' : 'eye-outline'}
-                        style={{ position: 'absolute', left: 230, top: 25 }}
+                        style={{ position: 'absolute', left: 220, top: 17, fontSize: 30 }}
                         onPress={() => setShowPassword(!showPassword)} />
                 </View>
             </View>

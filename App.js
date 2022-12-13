@@ -9,6 +9,9 @@ import RegisterScreen from './pages/RegisterScreen';
 import DificultadesScreen from './pages/DificultadesScreen';
 import MenuScreen from './pages/MenuScreen';
 import PersonalizacionUsuario from './pages/PersonalizacionUsuario';
+import SOSScreen from './pages/Menu pages/SOSScreen';
+import Call_SOS from './pages/Menu pages/SOS_call';
+import ContactsScreen from './pages/Menu pages/ContactsScreen';
 
 const Stack = createStackNavigator();
 //const Menu = createStackNavigator();
@@ -28,9 +31,16 @@ export default function App() {
         <Stack.Screen name='Registrate' component={RegisterScreen} />
         <Stack.Screen name='Dificultades' component={DificultadesScreen} />
         <Stack.Screen name='PersonalizacionUsuario' component={PersonalizacionUsuario} />
-        <Stack.Screen name='Menú' component={MenuScreen} />
+        <Stack.Screen name='Menú' component={MenuScreen} options={{headerLeft: (props) => null}} />
+        <Stack.Screen name='Menú SOS' component={SOSScreen} />
+        <Stack.Screen name='Llamando' component={Call_SOS} options={{headerLeft: (props) => null}} />
+        <Stack.Screen name='Menú Contacts' component={ContactsScreen} />
       </Stack.Navigator>
       <StatusBar style='auto' />
     </NavigationContainer>
   );
 }
+/*
+<Stack.Screen name='Menú_Calls' component={CallsScreen} />
+<Stack.Screen name='Menú_Medicine' component={MedicineScreen} />
+*/
