@@ -6,7 +6,6 @@ import RadioButtonRN from 'radio-buttons-react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Picker } from '@react-native-picker/picker';
-import { margin } from '@mui/system';
 
 
 //Siempre gano en el dutch blitz
