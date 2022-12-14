@@ -42,7 +42,7 @@ function MenuScreen({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           style={[botones.menu, { right: 80, bottom: 100 }]}
-          onPress={() => navigation.push('')}>
+          onPress={() => navigation.push('Menú Calls')}>
           <Feather
             name="phone-call"
             size={50}
@@ -53,7 +53,7 @@ function MenuScreen({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           style={[botones.menu, { left: 80, bottom: 220 }]}
-          onPress={() => navigation.push('')}>
+          onPress={() => navigation.push('Menú Medicine')}>
           <Icon
             name={'test-bottle'}
             style={{ fontSize: 55, marginBottom: 10 }}

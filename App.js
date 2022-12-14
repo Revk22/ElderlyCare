@@ -12,6 +12,8 @@ import PersonalizacionUsuario from './pages/PersonalizacionUsuario';
 import SOSScreen from './pages/Menu pages/SOSScreen';
 import Call_SOS from './pages/Menu pages/CallScreen';
 import ContactsScreen from './pages/Menu pages/ContactsScreen';
+import ManualCallsScreen from './pages/Menu pages/ManualCallScreen';
+import MedicineScreen from './pages/Menu pages/MedicineScreen';
 
 const Stack = createStackNavigator();
 //const Menu = createStackNavigator();
@@ -35,12 +37,14 @@ export default function App() {
         <Stack.Screen name='Menú SOS' component={SOSScreen} />
         <Stack.Screen name='Llamando' component={Call_SOS} options={{headerLeft: (props) => null}} />
         <Stack.Screen name='Menú Contacts' component={ContactsScreen} />
+        <Stack.Screen name='Menú Calls' component={ManualCallsScreen} />
+        <Stack.Screen name='Menú Medicine' component={MedicineScreen} />
       </Stack.Navigator>
       <StatusBar style='auto' />
     </NavigationContainer>
   );
 }
 /*
-<Stack.Screen name='Menú_Calls' component={CallsScreen} />
-<Stack.Screen name='Menú_Medicine' component={MedicineScreen} />
+
+
 */

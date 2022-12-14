@@ -7,8 +7,12 @@ function ContactsScreen({ navigation }) {
   return (
     <View style={pantalla.base}>
       <Text style={[texto.titulo, { marginBottom: 20 }]}> CONTACTOS </Text>
-      <Text style={botones.contactos}>Hija</Text>
-      <Text style={botones.contactos}>Hijo</Text>
+      <TouchableOpacity style={botones.contactos} onPress={() => navigation.push('Llamando')}>
+        <Text>Hija</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={botones.contactos} onPress={() => navigation.push('Llamando')}>
+      <Text>Hijo</Text>
+      </TouchableOpacity>
       <View>
       </View>
     </View>

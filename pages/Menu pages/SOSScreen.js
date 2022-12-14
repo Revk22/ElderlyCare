@@ -8,7 +8,7 @@ function SOSScreen({ navigation }) {
   const [timesPressed, setTimesPressed] = useState(0);
 
   //let textLog = '';
-  //let numero = '911';
+  let numero = '911';
   if (timesPressed == 3) {
     navigation.push('Llamando')
     //<Call_SOS numero = {'911'} />
