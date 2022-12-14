@@ -1,134 +1,107 @@
-import 'react-native-gesture-handler';
-import React, { useState, Component } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, FlatList, } from 'react-native';
+import React, { useState } from "react";
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, ScrollView, View } from "react-native";
 import { texto, botones, pantalla } from '../styles';
-import { Card } from 'react-native-paper';
-
 
 const Data = [
   {
     id: 1,
-    first_name: 'Sile',
+    title: 'Diabetes',
   },
   {
     id: 2,
-    first_name: 'Clementia',
+    title: 'Hipertensión arterial',
   },
   {
     id: 3,
-    first_name: 'Brita',
+    title: 'Pérdida de visión',
   },
   {
     id: 4,
-    first_name: 'Duke',
+    title: 'Alzheimer',
   },
   {
     id: 5,
-    first_name: 'Hedvig',
+    title: 'Infartos',
   },
   {
     id: 6,
-    first_name: 'Paulie',
+    title: 'Parkinson',
   },
   {
     id: 7,
-    first_name: 'Munmro',
+    title: 'Osteoporosis',
   },
   {
     id: 8,
-    first_name: 'Dyanna',
+    title: 'Artritis',
   },
   {
     id: 9,
-    first_name: 'Shanta',
-  },
-  {
-    id: 10,
-    first_name: 'Bambi',
+    title: 'Fibromialgia',
   },
 ];
 
-class DificultadesScreen extends React.Component {
-//function DificultadesScreen({ navigation }) {
-  navigate = () => {
-    this.navigation.push('PersonalizacionUsuario');
-    };
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedItem: null,
-      renderData: Data
-    };
-  }
+const Item = ({ item, onPress, backgroundColor, textColor }) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+    <Text style={[styles.title, textColor]}>{item.title}</Text>
+  </TouchableOpacity>
+);
 
-  onPressHandler(id) {
-    let renderData = [...this.state.renderData];
-    for (let data of renderData) {
-      if (data.id == id) {
-        data.selected = (data.selected == null) ? true : !data.selected;
-        break;
-      }
-    }
-    this.setState({ renderData });
-  }
-  render(){
+function DificultadesScreen({ navigation }) {
+  const [selectedId, setSelectedId] = useState(null);
+
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? "#3DA9FC" : "#F2F1F7";
+    const color = item.id === selectedId ? 'white' : 'black';
+
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        backgroundColor={{ backgroundColor }}
+        textColor={{ color }}
+      />
+    );
+  };
+
   return (
-
     <ScrollView>
-      <View style={pantalla.base}>
+      <SafeAreaView style={pantalla.base}>
         <Text style={[texto.titulo, { marginBottom: 20 }]}> DIFICULTADES </Text>
         <Text style={texto.subtitulo}>Selecciona cuáles de las siguientes enfermedades padece</Text>
-        <Text style={texto.subtitulo}>Es importante conocer sobre tus padecimientos para que la aplicación se adapte a tus necesidades</Text>
-
-
-
-        <View style={{ height: 40 }} />
-        <Text style={{ fontSize: 20 }}>MultiSelect Demo</Text>
-
-
-        <View>
-          <FlatList
-            //horizontal={true}
-            data={this.state.renderData}
-            keyExtractor={item => item.id.toString()}
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => this.onPressHandler(item.id)}>
-                <Card
-                  style={
-                    item.selected == true
-                      ? {
-                        padding: 10,
-                        borderRadius: 5,
-                        backgroundColor: '#3DA9FC',
-                      }
-                      : {
-                        padding: 10,
-                        borderRadius: 5,
-                        backgroundColor: '#',
-                      }
-                  }>
-                  <Text>{item.first_name}</Text>
-                </Card>
-              </TouchableOpacity>
-            )} //
-          />
-        </View>
-
-
-
+        <Text style={[texto.subtitulo, { marginBottom: 30 }]}>Es importante conocer sobre tus padecimientos para que la aplicación se adapte a tus necesidades</Text>
+        <FlatList
+          data={Data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          extraData={selectedId}
+        />
 
         <View style={{ marginTop: 30 }}>
           <TouchableOpacity
-            onPress={() => this.navigate()}>
-            <Text style={[botones.texto, {position: 'absolute', bottom: 420}]}>Continuar   →</Text>
+            onPress={() => navigation.push('PersonalizacionUsuario')}>
+            <Text style={botones.texto}>Continuar   →</Text>
           </TouchableOpacity>
         </View>
-      </View>
 
+      </SafeAreaView>
     </ScrollView>
   );
-}
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    padding: 10,
+    marginVertical: 8,
+    marginHorizontal: 30,
+  },
+  title: {
+    fontSize: 20,
+  },
+});
 
 export default DificultadesScreen;
