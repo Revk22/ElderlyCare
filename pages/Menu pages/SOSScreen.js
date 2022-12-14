@@ -1,14 +1,17 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Pressable } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity, Pressable } from 'react-native';
 import { texto, botones, pantalla } from '../../styles';
-
+import Call_SOS from './CallScreen';
+ 
 function SOSScreen({ navigation }) {
   const [timesPressed, setTimesPressed] = useState(0);
 
   //let textLog = '';
+  //let numero = '911';
   if (timesPressed == 3) {
     navigation.push('Llamando')
+    //<Call_SOS numero = {'911'} />
   } else if (timesPressed > 0) {
     //textLog = 'onPress';
   }

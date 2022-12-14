@@ -10,7 +10,7 @@ import DificultadesScreen from './pages/DificultadesScreen';
 import MenuScreen from './pages/MenuScreen';
 import PersonalizacionUsuario from './pages/PersonalizacionUsuario';
 import SOSScreen from './pages/Menu pages/SOSScreen';
-import Call_SOS from './pages/Menu pages/SOS_call';
+import Call_SOS from './pages/Menu pages/CallScreen';
 import ContactsScreen from './pages/Menu pages/ContactsScreen';
 
 const Stack = createStackNavigator();

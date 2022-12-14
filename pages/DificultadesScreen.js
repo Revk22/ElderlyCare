@@ -48,8 +48,11 @@ const Data = [
   },
 ];
 
-class DificultadesScreen extends Component {
+class DificultadesScreen extends React.Component {
 //function DificultadesScreen({ navigation }) {
+  navigate = () => {
+    this.navigation.push('PersonalizacionUsuario');
+    };
   constructor(props) {
     super(props);
     this.state = {
@@ -117,8 +120,8 @@ class DificultadesScreen extends Component {
 
         <View style={{ marginTop: 30 }}>
           <TouchableOpacity
-            onPress={() => navigation.push('PersonalizacionUsuario')}>
-            <Text style={botones.texto}>Continuar   →</Text>
+            onPress={() => this.navigate()}>
+            <Text style={[botones.texto, {position: 'absolute', bottom: 420}]}>Continuar   →</Text>
           </TouchableOpacity>
         </View>
       </View>

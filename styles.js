@@ -50,6 +50,9 @@ const texto = StyleSheet.create({
         backgroundColor: '#DAE4EC',
         borderRadius: 20,
         paddingLeft: 20
+    },
+    boton: {
+        fontWeight: 'bold'
     }
 });
 /*
@@ -119,6 +122,7 @@ const botones = StyleSheet.create({
         opacity: 0.7,
         padding: 20,
         paddingBottom: 0,
+        paddingTop: 5
     },
     contactos: {
         alignItems: 'center',

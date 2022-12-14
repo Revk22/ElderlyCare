@@ -6,14 +6,14 @@ import Ionicons from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icono from 'react-native-vector-icons/Ionicons';
 
-function Call_SOS({ navigation }) {
+function Call_SOS({ navigation, numero }) {
     const [changeIcon, setChangeIcon] = useState(false);
     const [changeIcon2, setChangeIcon2] = useState(false);
 
     return (
         <View style={[pantalla.base, { alignItems: 'center' }]}>
-            <Text style={[texto.subtitulo, { top: 80, fontSize: 30 }]}>Llamando a...</Text>
-            <Text style={[texto.subtitulo, { top: 80, fontWeight: 'bold', fontSize: 50 }]}>911</Text>
+            <Text style={[texto.subtitulo, { top: 80, fontSize: 30 }]}>Llamando ...</Text>
+            <Text style={[texto.subtitulo, { top: 80, fontWeight: 'bold', fontSize: 50 }]}>{numero}</Text>
             <Ionicons
                 name={changeIcon ? 'microphone-slash' : 'microphone'}
                 style={{ position: 'absolute', right: 80, top: 255, fontSize: 50, color: '#25D21F' }} //color: '#F41C1C' }}
@@ -38,5 +38,6 @@ function Call_SOS({ navigation }) {
         </View>
     );
 }
+
 
 export default Call_SOS;
