@@ -9,9 +9,15 @@ const pantalla = StyleSheet.create({
     frame: {
         marginTop: 25,
         backgroundColor: 'lightblue',
-        width: 400,
-        height: 80
-    }
+        width: 500,
+        height: 100,
+        marginBottom: 30,
+    },
+    bottom: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        marginBottom: 20
+      }
 });
 
 const texto = StyleSheet.create({
@@ -55,24 +61,7 @@ const texto = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-/*
-const datepicker = StyleSheet.create({
-    datePickerContainer: {
-        width: 260,
-        margin: 20,
-    },
-    datePickerLabel: {
-        fontSize: 18,
-        fontWeight: "bold"
-    },
-    fecha: {
-        fontSize: 20,
-        backgroundColor: "darkblue",
-        color: 'lightblue'
-    }
 
-})
-*/
 const botones = StyleSheet.create({
     inicio: {
         marginTop: 35,
@@ -115,14 +104,13 @@ const botones = StyleSheet.create({
     menu: {
         alignItems: 'center',
         justifyContent: 'center',
-        weight: 120,
-        height: 120,
+        weight: 200,
+        height: 180,
         borderRadius: 30,
         backgroundColor: '#64BAFC',
-        opacity: 0.7,
-        padding: 20,
+        padding: 15,
         paddingBottom: 0,
-        paddingTop: 5
+        paddingTop: 0
     },
     contactos: {
         alignItems: 'center',
