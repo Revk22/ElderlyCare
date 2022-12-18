@@ -114,12 +114,15 @@ const botones = StyleSheet.create({
     },
     contactos: {
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         borderRadius: 30,
         backgroundColor: '#64BAFC',
         opacity: 0.7,
-        padding: 20,
-        paddingBottom: 10,
+        padding: 10,
+        paddingBottom: 20,
+        height: 100,
+        width: 150,
+        marginHorizontal: 15
     },
 });
 

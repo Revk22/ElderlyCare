@@ -10,7 +10,9 @@ function HomeScreen({ navigation }) {
       <Image style={texto.imagen} source={require('../assets/logo.png')} />
       <View>
         <TouchableOpacity style={botones.inicio}
-          onPress={() => navigation.navigate('Inicio de Sesión')}>
+          onPress={() => 
+          //navigation.navigate('Autentificando')}> //PARA FIREBASE
+          navigation.navigate('Inicio de Sesión')}>
           <Text style={botones.texto}>INICIO DE SESIÓN</Text>
         </TouchableOpacity>
       </View>

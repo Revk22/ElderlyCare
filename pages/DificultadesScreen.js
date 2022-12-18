@@ -68,8 +68,8 @@ function DificultadesScreen({ navigation }) {
     <ScrollView>
       <SafeAreaView style={pantalla.base}>
         <Text style={[texto.titulo, { marginBottom: 20 }]}> DIFICULTADES </Text>
-        <Text style={texto.subtitulo}>Selecciona cuáles de las siguientes enfermedades padece</Text>
-        <Text style={[texto.subtitulo, { marginBottom: 30 }]}>Es importante conocer sobre tus padecimientos para que la aplicación se adapte a tus necesidades</Text>
+        <Text style={texto.subtitulo}>Seleccione cuáles de las siguientes enfermedades está padeciendo</Text>
+        <Text style={[texto.subtitulo, { marginBottom: 30 }]}>Es importante conocer sobre sus padecimientos para que la aplicación se adapte a sus necesidades</Text>
         <FlatList
           data={Data}
           renderItem={renderItem}

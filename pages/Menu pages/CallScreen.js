@@ -6,9 +6,11 @@ import Ionicons from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icono from 'react-native-vector-icons/Ionicons';
 
-function Call_SOS({ navigation, numero }) {
+const Call_SOS = ({ route, navigation }) => {
     const [changeIcon, setChangeIcon] = useState(false);
     const [changeIcon2, setChangeIcon2] = useState(false);
+
+    const {numero} = route.params;
 
     return (
         <View style={[pantalla.base, { alignItems: 'center' }]}>

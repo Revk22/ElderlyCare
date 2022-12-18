@@ -66,7 +66,7 @@ function RegisterScreen({ navigation }) {
                     placeholder='ej: (662)-290-9812'
                     style={texto.escribir}
                     onChangeText={(userNumber) => setUserNumber(userNumber)}
-                    keyboardType='numeric'
+                    keyboardType='phone-pad' //'numeric'
                 />
                 <Text style={texto.texto}>Contraseña</Text>
                 <View>
