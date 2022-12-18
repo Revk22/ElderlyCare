@@ -4,7 +4,6 @@ import { View, Text } from 'react-native';
 import { texto, botones, pantalla } from '../../styles';
 import Icon from 'react-native-vector-icons/Fontisto';
 
-
 function MedicineScreen({ navigation }) {
 
     return (

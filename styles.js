@@ -118,12 +118,20 @@ const botones = StyleSheet.create({
         borderRadius: 30,
         backgroundColor: '#64BAFC',
         opacity: 0.7,
-        padding: 10,
-        paddingBottom: 20,
+        //padding: 10,
+        paddingBottom: 10,
         height: 100,
         width: 150,
-        marginHorizontal: 15
+        margin: 15
     },
 });
 
-export { texto, botones, pantalla };
+const imagen = StyleSheet.create({
+    contactos: {
+        width: 60,
+        height: 60,
+        borderRadius: 150
+    }
+});
+
+export { texto, botones, pantalla, imagen };

@@ -7,7 +7,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Picker } from '@react-native-picker/picker';
 
-
 //Siempre gano en el dutch blitz
 
 function PersonalizacionUsuario({ navigation }) {
