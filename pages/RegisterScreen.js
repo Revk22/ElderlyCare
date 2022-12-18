@@ -21,14 +21,11 @@ function RegisterScreen({ navigation }) {
         console.log(userNumber, userPassword, userPassword2);
 
         if (!userNumber) {
+            console.log('No se introdujo número celular');
             alert('Proporcione su número celular');
             return;
         }
         if (!userPassword) {
-            alert('Proporcione una contraseña');
-            return;
-        }
-        if (!userPassword2) {
             alert('Proporcione una contraseña');
             return;
         }
@@ -39,14 +36,26 @@ function RegisterScreen({ navigation }) {
         try {
             const docRef = await addDoc(collection(db, 'users'), {
                 contact: userNumber,
-                password: userPassword
+                password: userPassword,
+                health: null,
+                name: null,
+                age: null,
+                gender: null,
+                address: null,
+                dateOfBirth: null,
+                state: null,
+                municipality: null,
+
             });
             console.log('Se registró un usuario en firestore con Id: ', docRef.id);
             Alert.alert('Éxito', 'Nuevo usuario registrado',
                 [
                     {
                         text: 'Aceptar',
-                        onPress: () => navigation.push('Dificultades'),
+                        onPress: () => navigation.push('Dificultades', {
+                            contact: userNumber,
+                            password: userPassword
+                        }),
                     },
                 ],
                 { cancelable: false });

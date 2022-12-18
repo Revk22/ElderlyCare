@@ -1,8 +1,8 @@
-//import { initializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 // Opcionalmente importar los servicios que se utilicen
 // import {...} from "firebase/auth";
 // import {...} from "firebase/database";
-//import { getFirestore } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 // import {...} from "firebase/firestore";
 // import {...} from "firebase/functions";
 // import {...} from "firebase/storage";
@@ -13,7 +13,7 @@
 //import 'firebase/compat/firestore';
 
 // Inicializar Firebase
-export const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyDwOhEsdociAjZBXzR21bEMRg6xNZW7vvk",
     authDomain: "elderlycare-58761.firebaseapp.com",
     projectId: "elderlycare-58761",
@@ -34,7 +34,7 @@ export const firebaseConfig = {
 /*
 if(!firebase.app.length){
     firebase.initializeApp(firebaseConfig);
-}
+}*/
 
 /////////////////////////////////////////////////////////////////////
 const app = initializeApp(firebaseConfig);
@@ -46,8 +46,6 @@ export default db;
 // consultar la documentación de Firebase en:
 // https://firebase.google.com/docs/web/setup#access-firebase
 
-
-*/
 /*
 Se importan las librerías:
 npx expo install expo-firebase-recaptcha

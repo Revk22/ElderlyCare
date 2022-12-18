@@ -10,7 +10,7 @@ import { texto, botones, pantalla } from '../../styles';
 //2do intento
 //import auth from '@react-native-firebase/auth';
 //3er intento
-import { getAuth, createUsertWithPhoneNumber, signInWithPhoneNumber } from 'firebase/auth';
+import { getAuth, createUserWithPhoneNumber, signInWithPhoneNumber } from 'firebase/auth';
 ///??import { RecaptchaVerifier } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../../firebase/firebaseConfig';
@@ -23,7 +23,7 @@ function SignUp({ navigation }) {
     const auth = getAuth(app);
 
     const handleCreateAccount = () => {
-        createUsertWithPhoneNumber(auth, phoneNumber, password)
+        createUserWithPhoneNumber(auth, phoneNumber)//, password)
         .then((userCredential) => {
             console.log('Account created!')
             const user = userCredential.user;
@@ -36,7 +36,7 @@ function SignUp({ navigation }) {
     }
 
     const handleSignIn = () => {
-        signInWithPhoneNumber(auth, phoneNumber, password)
+        signInWithPhoneNumber(auth, phoneNumber)//, password)
         .then((userCredential) => {
             console.log('Signed in!')
             const user = userCredential.user;
@@ -61,7 +61,6 @@ function SignUp({ navigation }) {
                 placeholder='Contraseña'
                 style={texto.escribir}
                 onChangeText={() => setPassword(password)}
-                keyboardType='phone-pad'
             />
             <TouchableOpacity
                 style={botones.inicio}  //MANDAR A OTRA PANTALLA? navigation.navigate('Confirmando Celular') ?
@@ -70,14 +69,9 @@ function SignUp({ navigation }) {
             </TouchableOpacity>
 
 
-            <TextInput
-                placeholder='Escribir código'
-                style={texto.escribir}
-                onChangeText={setCode}
-                keyboardType='phone-pad'
-            />
+            
             <TouchableOpacity
-                style={botones.inicio}  // MANDAR A DIFICULLTADES navigation.navigate('Dificultades')
+                style={botones.inicio}  // MANDAR A DIFICULLTADES navigation.navigate('Dificultades')?
                 onPress={handleSignIn}>
                 <Text style={botones.texto}>
                     Confirmar Código(Login)</Text >
@@ -86,7 +80,14 @@ function SignUp({ navigation }) {
         </View>
     )
 }
-
+////////////////////////////7
+/*<TextInput
+                placeholder='Escribir código'
+                style={texto.escribir}
+                onChangeText={setCode}
+                keyboardType='phone-pad'
+            />*/
+//////
 /*
 function SignUp({ navigation }) {
     const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
