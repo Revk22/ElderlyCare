@@ -6,13 +6,11 @@ import { texto, botones, pantalla } from '../../styles';
 function SOSScreen({ navigation }) {
   const [timesPressed, setTimesPressed] = useState(0);
 
-  //let textLog = '';
-  //let numero = '911';
   if (timesPressed == 3) {
     //navigation.push('Llamando')
     navigation.navigate('Llamando', {numero: '911'})
   } else if (timesPressed > 0) {
-    //textLog = 'onPress';
+    //
   }
 
   return (
@@ -45,20 +43,3 @@ function SOSScreen({ navigation }) {
 
 export default SOSScreen;
 
-/* 
-return (
-    <View style={pantalla.base}>
-      <Text style={[texto.titulo, { marginBottom: 20 }]}> ESTOY EN UNA EMERGENCIA </Text>
-      <Text style={texto.subtitulo}>Al presionar 3 veces el boton SOS, estarás </Text>
-      <Text style={texto.subtitulo}>solicitando asistencia  en el lugar donde estés</Text>
-      <View>
-        <TouchableOpacity
-          style={botones.sos}
-          onPress={() => navigation.push('Llamando')}>
-          <Text
-            style={{ fontSize: 80, textAlign: 'center', color: 'white', fontWeight: 'bold' }}>SOS</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-*/

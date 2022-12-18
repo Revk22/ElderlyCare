@@ -6,7 +6,6 @@ import db from '../firebase/firebaseConfig';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
-
 const Data = [
   {
     id: 1,
@@ -55,15 +54,6 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 function DificultadesScreen({ route, navigation }) {
   const [selectedId, setSelectedId] = useState(null);
 
-  /*await firebase
-  .firestore()
-  .collection('users')
-  .add({
-    displayName: 'John',
-    email: 'john@example.com',
-    phoneNumber: null,
-  })*/
-
   const { contact, password } = route.params;
   let updateUser = async () => {
     console.log(contact, password);
@@ -83,36 +73,7 @@ function DificultadesScreen({ route, navigation }) {
       municipality: null,
     }
     console.log(data);
-    /*
-        getDoc(q) //getDoc(docRef)
-          .then((result) => {
-            if (result.exists()) {
-              let data = result.data();
-              updateAllStates(data.name, data.contact, data.address);
-            }
-          })
-          .catch((error) => {
-            console.log("Registro no localizado ", error);
-          })
     
-    */
-    //getDoc(docRef)
-    /*setDoc(docRef, data)
-    .then(docRef => {
-
-    })*//*
-    const [data2, setData2] = useState();
-      try {
-        const docRef = await firestore().collection('users').get()
-        setData(docRef.docs)
-      }catch (e) {
-        console.log (e)
-      }
-      useEffect(() => {
-        updateUser()
-      })*/
-
-
   }
 
   const renderItem = ({ item }) => {
