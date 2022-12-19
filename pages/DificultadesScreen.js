@@ -102,7 +102,6 @@ function DificultadesScreen({ route, navigation }) {
           keyExtractor={(item) => item.id}
           extraData={selectedId}
         />
-        <TouchableOpacity onPress={updateUser} style={{ position: 'absolute' }}><Text>hola</Text></TouchableOpacity>
 
         <View style={{ marginTop: 30 }}>
           <TouchableOpacity

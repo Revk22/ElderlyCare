@@ -139,4 +139,39 @@ const imagen = StyleSheet.create({
     }
 });
 
-export { texto, botones, pantalla, imagen };
+const llamada = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        padding: 10,
+        textAlign: 'center',
+      },
+      titleText: {
+        fontSize: 22,
+        textAlign: 'center',
+        fontWeight: 'bold',
+      },
+      titleTextsmall: {
+        marginVertical: 8,
+        fontSize: 16,
+      },
+      buttonStyle: {
+        justifyContent: 'center',
+        marginTop: 15,
+        padding: 10,
+        backgroundColor: '#8ad24e',
+      },
+      buttonTextStyle: {
+        color: '#fff',
+        textAlign: 'center',
+      },
+      textInput: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        width: '100%',
+        paddingHorizontal: 10,
+      },
+});
+
+export { texto, botones, pantalla, imagen, llamada };
