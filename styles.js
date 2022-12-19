@@ -62,7 +62,7 @@ const texto = StyleSheet.create({
     },
     menu: {
         textAlign: 'left',
-        fontSize: 18,
+        fontSize: 16,
         fontFamily: 'sans-serif'
     }
 });
