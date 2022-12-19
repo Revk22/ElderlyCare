@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity, Pressable } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { texto, botones, pantalla } from '../../styles';
 
 function SOSScreen({ navigation }) {

@@ -79,11 +79,19 @@ function MenuScreen({ navigation }) {
 
       </View>
 
-      <View>
-        <Text style={[texto.subtitulo,]}>Municipio</Text>
-        <MaterialIcons name="account-box" size={60} color="black" />
-      </View>
+      <View style={[pantalla.frame, { position: 'absolute', bottom: 0, marginBottom: 5 }]}></View>
 
+      <SafeAreaView style={{ position: 'absolute' , alignSelf: 'flex-start', bottom: 10, left: 50}}>
+        <MaterialIcons name="account-box" size={80} color="black" />
+        </SafeAreaView> 
+        <View style={{position: 'absolute', alignSelf: 'flex-start', bottom: 8, right: 80}}>
+        <Text style={texto.menu}>Nombre Completo</Text>
+        <Text style={texto.menu}>xxxxxxxxxxxxxxxxxxxxxxxx</Text>
+        <Text style={texto.menu}>Número de Usuario</Text>
+        <Text style={texto.menu}>lalalalala</Text>
+        </View>
+
+        
     </View>
 
   );

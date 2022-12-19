@@ -59,6 +59,11 @@ const texto = StyleSheet.create({
     },
     boton: {
         fontWeight: 'bold'
+    },
+    menu: {
+        textAlign: 'left',
+        fontSize: 18,
+        fontFamily: 'sans-serif'
     }
 });
 
