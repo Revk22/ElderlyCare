@@ -4,11 +4,6 @@ import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { texto, botones, pantalla } from '../styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-//////// FIREBASE
-import db from '../firebase/firebaseConfig';
-import { collection, addDoc } from 'firebase/firestore';
-///////////////////
-
 function RegisterScreen({ navigation }) {
     const [userNumber, setUserNumber] = useState('');
     const [userPassword, setUserPassword] = useState('');
@@ -16,7 +11,6 @@ function RegisterScreen({ navigation }) {
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
 
-    //////// FIREBASE
     let registro_usuario = async () => {
         console.log(userNumber, userPassword, userPassword2);
 
@@ -34,28 +28,12 @@ function RegisterScreen({ navigation }) {
             return;
         }
         try {
-            const docRef = await addDoc(collection(db, 'users'), {
-                contact: userNumber,
-                password: userPassword,
-                health: null,
-                name: null,
-                age: null,
-                gender: null,
-                address: null,
-                dateOfBirth: null,
-                state: null,
-                municipality: null,
-
-            });
-            console.log('Se registró un usuario en firestore con Id: ', docRef.id);
+            console.log('Se registró un nuevo usuario! '); 
             Alert.alert('Éxito', 'Nuevo usuario registrado',
                 [
                     {
                         text: 'Aceptar',
-                        onPress: () => navigation.push('Dificultades', {
-                            contact: userNumber,
-                            password: userPassword
-                        }),
+                        onPress: () => navigation.push('Dificultades'),
                     },
                 ],
                 { cancelable: false });
@@ -64,7 +42,6 @@ function RegisterScreen({ navigation }) {
             console.log('Error al guardar en firestore ', error);
         }
     }
-    ////////////////////////////////
 
     return (
         <View style={pantalla.base}>

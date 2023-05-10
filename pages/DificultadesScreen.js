@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, ScrollView, View } from "react-native";
 import { texto, botones, pantalla } from '../styles';
 
-import db from '../firebase/firebaseConfig';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
-import { collection, query, where, getDocs } from 'firebase/firestore';
-
 const Data = [
   {
     id: 1,
@@ -51,30 +47,8 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
-function DificultadesScreen({ route, navigation }) {
+function DificultadesScreen({ navigation }) {
   const [selectedId, setSelectedId] = useState(null);
-
-  const { contact, password } = route.params;
-  let updateUser = async () => {
-    console.log(contact, password);
-
-    //const docRef = doc(db, 'users', contact); //&&password);
-    //const q = query(collection(db, 'users'), where('conctac', '==', contact))
-    const data = {
-      contact: contact,
-      password: password,
-      health: selectedId,
-      name: null,
-      age: null,
-      gender: null,
-      address: null,
-      dateOfBirth: null,
-      state: null,
-      municipality: null,
-    }
-    console.log(data);
-    
-  }
 
   const renderItem = ({ item }) => {
     const backgroundColor = item.id === selectedId ? "#3DA9FC" : "#F2F1F7";

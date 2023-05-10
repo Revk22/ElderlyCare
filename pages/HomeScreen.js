@@ -11,7 +11,6 @@ function HomeScreen({ navigation }) {
       <View>
         <TouchableOpacity style={botones.inicio}
           onPress={() => 
-          //navigation.navigate('Autentificando')}> //PARA FIREBASE
           navigation.navigate('Inicio de Sesión')}>
           <Text style={botones.texto}>INICIO DE SESIÓN</Text>
         </TouchableOpacity>

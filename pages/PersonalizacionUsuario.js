@@ -177,9 +177,6 @@ function PersonalizacionUsuario({ navigation }) {
                     </View>
                 </View>
 
-
-
-
             </View>
         </ScrollView>
     );

@@ -15,8 +15,6 @@ import ContactsScreen from './pages/Menu pages/ContactsScreen';
 import ManualCallsScreen from './pages/Menu pages/ManualCallScreen';
 import MedicineScreen from './pages/Menu pages/MedicineScreen';
 
-import SignUp from './pages/firebaseAuthentication/InicioFirebase';
-
 const Stack = createStackNavigator();
 //const Menu = createStackNavigator();
 
@@ -32,9 +30,6 @@ export default function App() {
         }}>
         <Stack.Screen name="Elderly Care" component={HomeScreen} />
         <Stack.Screen name="Inicio de Sesión" component={IngresarScreen} />
-
-        <Stack.Screen name='Autentificando' component={SignUp} />
-
         <Stack.Screen name='Registrate' component={RegisterScreen} />
         <Stack.Screen name='Dificultades' component={DificultadesScreen} />
         <Stack.Screen name='PersonalizacionUsuario' component={PersonalizacionUsuario} />
