@@ -171,7 +171,7 @@ function PersonalizacionUsuario({ navigation }) {
 
                     <View style={{ marginTop: 30 }}>
                         <TouchableOpacity
-                            onPress={() => navigation.push('Menú')}>
+                            onPress={() => navigation.push('Seleccion de Usuario')}>
                             <Text style={botones.texto}>Continuar   →</Text>
                         </TouchableOpacity>
                     </View>

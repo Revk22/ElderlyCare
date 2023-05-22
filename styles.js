@@ -129,6 +129,15 @@ const botones = StyleSheet.create({
         width: 150,
         margin: 15
     },
+    usuarios:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        weight: 200,
+        height: 170,
+        borderRadius: 30,
+        backgroundColor: '#64BAFC',
+        padding: 50
+    }
 });
 
 const imagen = StyleSheet.create({

@@ -12,6 +12,7 @@ import RegisterScreen from './pages/RegisterScreen';
         <Stack.Screen name='Registrate' component={RegisterScreen} />
 
 */
+import SeleccionID from './pages/SeleccionID';
 import DificultadesScreen from './pages/DificultadesScreen';
 import MenuScreen from './pages/MenuScreen';
 import PersonalizacionUsuario from './pages/PersonalizacionUsuario';
@@ -41,6 +42,7 @@ export default function App() {
         <Stack.Screen name='Iniciar Sesion' component={LogIn} />
         <Stack.Screen name='Nueva cuenta' component={SignUp} />
 
+        <Stack.Screen name='Seleccion de Usuario' component={SeleccionID} />
         <Stack.Screen name='Dificultades' component={DificultadesScreen} />
         <Stack.Screen name='PersonalizacionUsuario' component={PersonalizacionUsuario} />
         <Stack.Screen name='Menú' component={MenuScreen} options={{headerLeft: (props) => null}} />
