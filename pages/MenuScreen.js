@@ -82,7 +82,12 @@ function MenuScreen({ navigation }) {
       <View style={[pantalla.frame, { position: 'absolute', bottom: 0, marginBottom: 5 }]}></View>
 
       <SafeAreaView style={{ position: 'absolute' , alignSelf: 'flex-start', bottom: 10, left:30}}>
-        <MaterialIcons name="account-box" size={80} color="black" />
+        <MaterialIcons 
+        name="account-box" 
+        size={80} 
+        color="black"
+        onPress={() => navigation.push('Dificultades')}
+         />
         </SafeAreaView> 
         <View style={{position: 'absolute', alignSelf: 'flex-start', bottom: 8, right: 60}}>
         <Text style={texto.menu}>Nombre Completo</Text>

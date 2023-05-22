@@ -41,7 +41,7 @@ const texto = StyleSheet.create({
         marginTop: 25,
         width: 170,
         height: 170,
-        marginBottom: 70,
+        marginBottom: 30,
     },
     texto: {
         textAlign: 'left',
