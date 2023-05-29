@@ -1,23 +1,23 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Button } from 'react-native';
-import { texto, botones, pantalla } from '../styles';
+import { texto, botones, pantalla } from '../../styles';
 import { MaterialIcons } from '@expo/vector-icons';
 
 //FIREBASE
 import { getAuth } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from '../firebase/firebaseConfig';
+import { firebaseConfig } from '../../firebase/firebaseConfig';
 import { getFirestore, updateDoc, doc } from 'firebase/firestore';
 
-const SeleccionID = ({ route, navigation }) => {
+const Pruebas = ({ route, navigation }) => {
     // FIREBASE
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore();
 
     const { referencia } = route.params;
-    //console.log(referencia);
+    console.log(referencia);
 
     const handleActualizacionUsuario = async (datos) => {
         // Realizar acciones de actualización con los datos proporcionados
@@ -65,4 +65,4 @@ const SeleccionID = ({ route, navigation }) => {
     );
 }
 
-export default SeleccionID;
+export default Pruebas;

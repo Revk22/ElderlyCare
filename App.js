@@ -25,7 +25,7 @@ import MedicineScreen from './pages/Menu pages/MedicineScreen';
 import SignUp from './pages/Authentication/SignUpScreen';
 import LogIn from './pages/Authentication/LogInScreen';
 
-import IngresarDatos from './pages/SinUsoTemporal/IngresarDatos.js';
+import Pruebas from './pages/SinUsoTemporal-Pruebas/Pruebas.js';
 
 const Stack = createStackNavigator();
 //const Menu = createStackNavigator();
@@ -46,7 +46,7 @@ export default function App() {
 
         <Stack.Screen name='Seleccion de Usuario' component={SeleccionID} />
 
-        <Stack.Screen name='Ingresar Datos' component={IngresarDatos} />
+        <Stack.Screen name='Pruebas' component={Pruebas} />
 
         <Stack.Screen name='Dificultades' component={DificultadesScreen} />
         <Stack.Screen name='PersonalizacionUsuario' component={PersonalizacionUsuario} />

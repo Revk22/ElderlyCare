@@ -25,8 +25,8 @@ function HomeScreen({ navigation }) {
         console.log('Contraseña:', password);
         const user = userCredential.user;
         //console.log(user);
-        //navigation.navigate('Seleccion de Usuario'); //original
-        navigation.navigate('Menú'); //prueba
+        navigation.navigate('Menú'); //original
+        //navigation.navigate('Pruebas'); //prueba
       })
       .catch(error => {
         console.log(error)

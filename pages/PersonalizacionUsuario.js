@@ -8,10 +8,10 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Picker } from '@react-native-picker/picker';
 
 //FIREBASE
-import { getAuth, onAuthStateChanged} from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../firebase/firebaseConfig';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, setDoc, doc } from 'firebase/firestore';
 
 function IngresarDatos({ navigation }) {
     // FIREBASE
@@ -83,8 +83,12 @@ function IngresarDatos({ navigation }) {
         console.log('Municipio:', municipio);
 
         try {
-            const docRef = await addDoc(collection(db, 'users'), {//(collection(db, 'users'), {
-                uid: uid,
+            const collectionRef = collection(db, 'users');
+            const docRef = doc(collectionRef);
+
+            const data = {
+                uidAuth: uid,
+                uidFireStore: docRef.id,
                 displayName: nombreCompleto,
                 email: email,
                 edad: edad,
@@ -92,15 +96,31 @@ function IngresarDatos({ navigation }) {
                 fechaNacimiento: fechaNacimiento,
                 estado: estado,
                 municipio: municipio
-            });
+            };
+
+            await setDoc(docRef, data);
+            /*
+            // DE ESTA FORMA TAMBIEN ES CORRECTA PERO LA UID ES DIFERENTE
+            const docRef = await addDoc(collection(db, 'users'), {
+                uid: uid,
+                //uid: docRef.id,
+                displayName: nombreCompleto,
+                email: email,
+                edad: edad,
+                genero: genero,
+                fechaNacimiento: fechaNacimiento,
+                estado: estado,
+                municipio: municipio
+            });*/
             console.log("Se registró un usuario en firestore con Id: ", docRef.id);
+            //console.log(data);
             // Redirigir a la siguiente pantalla
             Alert.alert('Éxito',
                 'Nuevo usuario registrado',
                 [
                     {
                         text: 'Aceptar',
-                        onPress: () =>  navigation.push('Seleccion de Usuario')
+                        onPress: () => navigation.push('Seleccion de Usuario', { referencia: data.uidFireStore }) //navigation.push('Seleccion de Usuario')
                     },
                 ],
                 { cancelable: false }
@@ -201,36 +221,36 @@ function IngresarDatos({ navigation }) {
                             onValueChange={(itemValue) => setMunicipio(itemValue)}
                         >
                             <Picker.Item label="Aguascalientes" value="Aguascalientes" />
-                            <Picker.Item label="Mexicali" value="Baja California" />
-                            <Picker.Item label="La Paz" value="Baja California Sur" />
-                            <Picker.Item label="San Francisco de Campeche" value="Campeche" />
-                            <Picker.Item label="Tuxtla Gutiérrez" value="Chiapas" />
+                            <Picker.Item label="Mexicali" value="Mexicali" />
+                            <Picker.Item label="La Paz" value="La Paz" />
+                            <Picker.Item label="San Francisco de Campeche" value="San Francisco de Campeche" />
+                            <Picker.Item label="Tuxtla Gutiérrez" value="Tuxtla Gutiérrez" />
                             <Picker.Item label="Chihuahua" value="Chihuahua" />
-                            <Picker.Item label="Ciudad de México" value="Ciudad de México	" />
-                            <Picker.Item label="Saltillo" value="Coahuila" />
+                            <Picker.Item label="Ciudad de México" value="Ciudad de México" />
+                            <Picker.Item label="Saltillo" value="Saltillo" />
                             <Picker.Item label="Colima" value="Colima" />
-                            <Picker.Item label="Victoria de Durango" value="Durango" />
+                            <Picker.Item label="Victoria de Durango" value="Victoria de Durango" />
                             <Picker.Item label="Guanajuato" value="Guanajuato" />
-                            <Picker.Item label="Chilpancingo de los Bravo" value="Guerrero" />
-                            <Picker.Item label="Pachuca de Soto" value="Hidalgo" />
-                            <Picker.Item label="Guadalajara" value="Jalisco" />
-                            <Picker.Item label="Toluca de Lerdo" value="México" />
-                            <Picker.Item label="Morelia" value="Michoacán" />
-                            <Picker.Item label="Cuernavaca" value="Morelos" />
-                            <Picker.Item label="Tepic" value="Nayarit" />
-                            <Picker.Item label="Monterrey" value="Nuevo León" />
-                            <Picker.Item label="Oaxaca de Juárez" value="Oaxaca" />
-                            <Picker.Item label="Puebla de de Zaragoza" value="Puebla" />
-                            <Picker.Item label="Santiago de Querétaro" value="Querétaro" />
-                            <Picker.Item label="Chetumal" value="Quintana Roo" />
+                            <Picker.Item label="Chilpancingo de los Bravo" value="Chilpancingo de los Bravo" />
+                            <Picker.Item label="Pachuca de Soto" value="Pachuca de Soto" />
+                            <Picker.Item label="Guadalajara" value="Guadalajara" />
+                            <Picker.Item label="Toluca de Lerdo" value="Toluca de Lerdo" />
+                            <Picker.Item label="Morelia" value="Morelia" />
+                            <Picker.Item label="Cuernavaca" value="Cuernavaca" />
+                            <Picker.Item label="Tepic" value="Tepic" />
+                            <Picker.Item label="Monterrey" value="Monterrey" />
+                            <Picker.Item label="Oaxaca de Juárez" value="Oaxaca de Juárez" />
+                            <Picker.Item label="Puebla de de Zaragoza" value="Puebla de de Zaragoza" />
+                            <Picker.Item label="Santiago de Querétaro" value="Santiago de Querétaro" />
+                            <Picker.Item label="Chetumal" value="Chetumal" />
                             <Picker.Item label="San Luis Potosí	" value="San Luis Potosí" />
-                            <Picker.Item label="Culiacán Rosales" value="Sinaloa" />
-                            <Picker.Item label="Hermosillo" value="Sonora" />
-                            <Picker.Item label="Villahermosa" value="Tabasco" />
-                            <Picker.Item label="Ciudad Victoria" value="Tamaulipas" />
-                            <Picker.Item label="Tlaxcala de Xicohténcatl" value="Tlaxcala" />
-                            <Picker.Item label="Xalapa-Enríquez" value="Veracruz" />
-                            <Picker.Item label="Mérida" value="Yucatán" />
+                            <Picker.Item label="Culiacán Rosales" value="Culiacán Rosales" />
+                            <Picker.Item label="Hermosillo" value="Hermosillo" />
+                            <Picker.Item label="Villahermosa" value="Villahermosa" />
+                            <Picker.Item label="Ciudad Victoria" value="Ciudad Victoria" />
+                            <Picker.Item label="Tlaxcala de Xicohténcatl" value="Tlaxcala de Xicohténcatl" />
+                            <Picker.Item label="Xalapa-Enríquez" value="Xalapa-Enríquez" />
+                            <Picker.Item label="Mérida" value="Mérida" />
                             <Picker.Item label="Zacatecas" value="Zacatecas" />
                         </Picker>
                     </View>
