@@ -42,7 +42,7 @@ export default function SignUp({ navigation }) {
                     [
                         {
                             text: 'Aceptar',
-                            onPress: () => navigation.navigate('Iniciar Sesion')
+                            onPress: () => navigation.navigate('PersonalizacionUsuario') //onPress: () => navigation.navigate('Seleccion de Usuario')  //onPress: () => navigation.navigate('Iniciar Sesion') 
                         },
                     ],
                     { cancelable: false });
@@ -77,7 +77,7 @@ export default function SignUp({ navigation }) {
                         onChangeText={text => setPassword(text)}
                     />
                     <Ionicons
-                        name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+                        name={showPassword ? 'eye-outline' : 'eye-off-outline'}
                         style={{ position: 'absolute', left: 220, top: 38, fontSize: 30 }}
                         onPress={() => setShowPassword(!showPassword)} />
                 </View>
@@ -91,7 +91,7 @@ export default function SignUp({ navigation }) {
                         onChangeText={text => setPassword2(text)}
                     />
                     <Ionicons
-                        name={showPassword2 ? 'eye-off-outline' : 'eye-outline'}
+                        name={showPassword2 ? 'eye-outline' : 'eye-off-outline'}
                         style={{ position: 'absolute', left: 220, top: 38, fontSize: 30 }}
                         onPress={() => setShowPassword2(!showPassword2)} />
                 </View>

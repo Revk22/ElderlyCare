@@ -86,7 +86,7 @@ function MenuScreen({ navigation }) {
         name="account-box" 
         size={80} 
         color="black"
-        onPress={() => navigation.push('Dificultades')}
+        //onPress={() => navigation.push('Dificultades')}
          />
         </SafeAreaView> 
         <View style={{position: 'absolute', alignSelf: 'flex-start', bottom: 8, right: 60}}>

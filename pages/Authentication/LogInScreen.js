@@ -55,7 +55,7 @@ function HomeScreen({ navigation }) {
           onChangeText={text => setPassword(text)}
         />
         <Ionicons
-          name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+          name={showPassword ? 'eye-outline' : 'eye-off-outline'}
           style={{ position: 'absolute', left: 220, top: 125, fontSize: 30 }}
           onPress={() => setShowPassword(!showPassword)} />
       </View>
