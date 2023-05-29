@@ -32,7 +32,7 @@ const SeleccionID = ({ route, navigation }) => {
                 //navigation.push('Dificultades')
                 navigation.push('Dificultades', { referencia: referencia })
             } else {
-                navigation.push('Menú')
+                navigation.push('Menú', { referencia: referencia })
             }
         } catch (error) {
             console.error('Error al actualizar el documento:', error);

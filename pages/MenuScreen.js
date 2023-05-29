@@ -10,8 +10,13 @@ import { Feather } from '@expo/vector-icons';   //LLAMADAS
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
+//FIREBASE
+import { getAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../firebase/firebaseConfig';
+import { getFirestore, getDoc, doc } from 'firebase/firestore';
 
-function MenuScreen({ navigation }) {
+const MenuScreen = ({ route, navigation }) => {
   const [currentDate, setCurrentDate] = useState('');
 
   useEffect(() => {
@@ -22,6 +27,69 @@ function MenuScreen({ navigation }) {
     );
   }, []);
 
+  // FIREBASE
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore();
+
+  const { referencia } = route.params;
+  //console.log(referencia);
+  const [nombreCompleto, setNombreCompleto] = useState('');
+  const [email, setEmail] = useState('');
+  const [edad, setEdad] = useState('');
+  const [genero, setGenero] = useState('');
+  const [fechaNacimiento, setFechaNacimiento] = useState('');
+  const [estado, setEstado] = useState('');
+  const [municipio, setMunicipio] = useState('');
+  const [uidAuth, setUidAuth] = useState('');
+  const [uidFireStore, setUidFireStore] = useState('');
+  const [tipoUsuario, setTipoUsuario] = useState('');
+
+  const [userData, setUserData] = useState('');
+
+  useEffect(() => {
+    const obtenerDatosUsuario = async () => {
+      try {
+        const docRef = doc(db, 'users', referencia);
+        const result = await getDoc(docRef);
+        if (result.exists()) {
+          console.log("Resutlado: ", result.data());
+          const data = result.data();
+          setUserData(data);
+        }
+      } catch (error) {
+        console.error('Error al obtener los datos del usuario:', error);
+      }
+    };
+
+    obtenerDatosUsuario();
+  }, [referencia]);
+
+  /*
+  const obtenerDatosUsuario = async () => {
+    try {
+      const userDocRef = doc(db, 'users', referencia);
+      const docSnap = await getDoc(userDocRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setNombreCompleto(data.displayName);
+        setEmail(data.email);
+        setEdad(data.edad);
+        setGenero(data.genero);
+        setFechaNacimiento(data.fechaNacimiento);
+        setEstado(data.estado);
+        setMunicipio(data.municipio);
+        setTipoUsuario(data.tipoUsuario);
+        setUidAuth(data.uidAuth);
+        setUidFireStore(data.uidFireStore);
+      }
+    } catch (error) {
+      console.error('Error al obtener los datos del usuario:', error);
+    }
+  };
+  obtenerDatosUsuario();
+}, [referencia]);*/
+
   return (
     <View style={pantalla.base}>
 
@@ -29,9 +97,6 @@ function MenuScreen({ navigation }) {
         <Entypo name="stopwatch" size={75} color="black" />
         <Text style={[{ fontSize: 50 }]}> {currentDate}  </Text>
       </View>
-
-
-
       <View >
         <TouchableOpacity
           style={[botones.menu, { right: 80 }]}
@@ -81,22 +146,23 @@ function MenuScreen({ navigation }) {
 
       <View style={[pantalla.frame, { position: 'absolute', bottom: 0, marginBottom: 5 }]}></View>
 
-      <SafeAreaView style={{ position: 'absolute' , alignSelf: 'flex-start', bottom: 10, left:30}}>
-        <MaterialIcons 
-        name="account-box" 
-        size={80} 
-        color="black"
+      <SafeAreaView style={{ position: 'absolute', alignSelf: 'flex-start', bottom: 10, left: 30 }}>
+        <MaterialIcons
+          name="account-box"
+          size={80}
+          color="black"
         //onPress={() => navigation.push('Dificultades')}
-         />
-        </SafeAreaView> 
-        <View style={{position: 'absolute', alignSelf: 'flex-start', bottom: 8, right: 60}}>
+        />
+      </SafeAreaView>
+      <View style={{ position: 'absolute', alignSelf: 'flex-start', bottom: 12, right: 100, alignItems: 'center' }}>
         <Text style={texto.menu}>Nombre Completo</Text>
-        <Text style={texto.menu}>xxxxxxxxxxxxxxxxxxxxxxxx</Text>
-        <Text style={texto.menu}>Número de Usuario</Text>
-        <Text style={texto.menu}>lalalalala</Text>
-        </View>
+        <Text style={texto.menu}>{userData && userData.displayName}</Text>
+        <Text style={texto.menu}>Correo de Usuario</Text>
+        <Text style={texto.menu}>{userData && userData.email}</Text>
 
-        
+      </View>
+
+
     </View>
 
   );

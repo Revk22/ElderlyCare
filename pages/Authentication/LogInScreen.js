@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../../firebase/firebaseConfig';
+import { getFirestore, doc } from 'firebase/firestore';
 
 function HomeScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -16,6 +17,8 @@ function HomeScreen({ navigation }) {
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const db = getFirestore();
+  //console.log(auth)
 
   const handleSignIn = async () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -25,8 +28,8 @@ function HomeScreen({ navigation }) {
         console.log('Contraseña:', password);
         const user = userCredential.user;
         //console.log(user);
-        navigation.navigate('Menú'); //original
-        //navigation.navigate('Pruebas'); //prueba
+        //navigation.navigate('Menú'); //original
+        navigation.navigate('Menú', { referencia: user.uid }); //prueba
       })
       .catch(error => {
         console.log(error)
