@@ -29,7 +29,8 @@ const SeleccionID = ({ route, navigation }) => {
             await updateDoc(userDocRef, { tipoUsuario: tipoUsuario });
             console.log('Documento actualizado en Firestore');
             if (tipoUsuario == 'Adulto Mayor') {
-                navigation.push('Dificultades')
+                //navigation.push('Dificultades')
+                navigation.push('Dificultades', { referencia: referencia })
             } else {
                 navigation.push('Menú')
             }

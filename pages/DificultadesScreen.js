@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, ScrollView, View } from "react-native";
 import { texto, botones, pantalla } from '../styles';
 
+//FIREBASE
+import { getAuth } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../firebase/firebaseConfig';
+import { getFirestore, updateDoc, doc } from 'firebase/firestore';
 
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
-//import firebase from 'firebase/app';
-//import 'firebase/firestore';
-
-function DificultadesScreen({ navigation }) {
+const DificultadesScreen = ({ route, navigation }) => {
   const [selectedId, setSelectedId] = useState(null);
 
   const Data = [
@@ -33,12 +30,28 @@ function DificultadesScreen({ navigation }) {
     </TouchableOpacity>
   );
   */
+  // FIREBASE
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore();
 
-  const handleOptionPress = (itemId) => {
+  const { referencia } = route.params;
+  //console.log(referencia);
+
+  const handleOptionPress = async (itemId) => {
     setSelectedId(itemId);
-    console.log('Dificultad:', itemId);//, itemId.title);
+    const selectedItem = Data.find(item => item.id === itemId);
+
+    console.log('Dificultad:', itemId, selectedItem.title);//, itemId.title);
 
     // ESPACIO PARA FIRESTORE Y AUTHENTICATION
+    try {
+      const userDocRef = doc(db, 'users', referencia);
+      await updateDoc(userDocRef, { idDificultad: itemId, idDificultadTitle: selectedItem.title });
+      console.log('Documento actualizado en Firestore');
+    } catch (error) {
+      console.error('Error al actualizar el documento:', error);
+    }
 
   }
 
@@ -80,13 +93,15 @@ function DificultadesScreen({ navigation }) {
         />
 
         <View style={{ marginTop: 30 }}>
-          <TouchableOpacity onPress={() => navigation.push('Menú')}>
+          <TouchableOpacity  //navigation.push('Menú')}
+            onPress={() => navigation.push('Menú', { referencia: referencia })}
+          >
             <Text style={[botones.texto, { marginBottom: 15 }]}>Continuar   →</Text>
           </TouchableOpacity>
         </View>
 
       </SafeAreaView>
-    </ScrollView>
+    </ScrollView >
     /*
     <ScrollView>
       <SafeAreaView style={pantalla.base}>
