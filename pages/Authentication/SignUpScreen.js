@@ -42,7 +42,7 @@ export default function SignUp({ navigation }) {
                     [
                         {
                             text: 'Aceptar',
-                            onPress: () => navigation.navigate('PersonalizacionUsuario') //onPress: () => navigation.navigate('Seleccion de Usuario')  //onPress: () => navigation.navigate('Iniciar Sesion') 
+                            onPress: () => navigation.navigate('PersonalizacionUsuario')
                         },
                     ],
                     { cancelable: false });
@@ -107,12 +107,3 @@ export default function SignUp({ navigation }) {
         </View>
     );
 }
-
-/*
-const handleSignUp = () => {
-        // Lógica de registro aquí
-        console.log('Registrando nuevo usuario ...');
-        console.log('Email:', email);
-        console.log('Contraseña:', password);
-    };
-*/

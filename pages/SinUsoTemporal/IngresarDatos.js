@@ -1,16 +1,16 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Button, Alert } from 'react-native';
-import { texto, botones, pantalla } from '../styles';
+import { texto, botones, pantalla } from '../../styles';
 import RadioButtonRN from 'radio-buttons-react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Picker } from '@react-native-picker/picker';
 
 //FIREBASE
-import { getAuth, onAuthStateChanged} from 'firebase/auth';
+import { getAuth, onAuthStateChanged, currentUser, getCurrentUser, updateProfile } from 'firebase/auth';// } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from '../firebase/firebaseConfig';
+import { firebaseConfig } from '../../firebase/firebaseConfig';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 function IngresarDatos({ navigation }) {
@@ -36,7 +36,7 @@ function IngresarDatos({ navigation }) {
             } else {
                 // El usuario no está autenticado
                 console.log('Usuario no autenticado');
-                //PONER ALERTA Y REDIRECCIONANDO AL INICIO?
+                //PONER ALERTA Y REDIRECCIONANDO AL INICIO
                 // Aquí puedes redirigir a la pantalla de inicio de sesión o mostrar un formulario de registro
             }
         });
@@ -82,6 +82,12 @@ function IngresarDatos({ navigation }) {
         console.log('Estado:', estado);
         console.log('Municipio:', municipio);
 
+        // Aquí puedes realizar acciones adicionales, como enviar los datos a una base de datos o guardarlos en el estado global de la aplicación
+        //const auth = getAuth(app); 
+        //const user = currentUser(auth);
+        //await updateProfile(auth, { displayName: nombreCompleto });
+        //console.log(auth);
+
         try {
             const docRef = await addDoc(collection(db, 'users'), {//(collection(db, 'users'), {
                 uid: uid,
@@ -100,7 +106,7 @@ function IngresarDatos({ navigation }) {
                 [
                     {
                         text: 'Aceptar',
-                        onPress: () =>  navigation.push('Seleccion de Usuario')
+                        onPress: () =>  navigation.push('Seleccion de Usuario') //navigation.navigate('VentanaInicio'),
                     },
                 ],
                 { cancelable: false }
