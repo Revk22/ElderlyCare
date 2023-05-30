@@ -8,9 +8,11 @@ import { green } from '@mui/material/colors';
 
 
 
-function MedicineScreen({ navigation }) {
+const MedicineScreen = ({ route, navigation }) => {
     const [isChecked, setChecked] = useState(false);
     const [isChecked2, setChecked2] = useState(false);
+
+    const { referencia } = route.params;
 
     return (
         <View style={[pantalla.base, { alignItems: 'center' }]}>
@@ -54,7 +56,7 @@ function MedicineScreen({ navigation }) {
 
             <View style={{ marginTop: 100 }}>
                 <TouchableOpacity
-                    onPress={() => navigation.push('Menú')}>
+                    onPress={() => navigation.push('Menú', {referencia: referencia})}>
                     <Text style={botones.texto}>Agregar</Text>
                 </TouchableOpacity>
             </View>

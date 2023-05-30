@@ -4,10 +4,11 @@ import { View, Text, TouchableOpacity, TextInput, } from 'react-native';
 import { texto, llamada, pantalla } from '../../styles';
 import call from 'react-native-phone-call';
 
-function ManualCallsScreen({ navigation }) {
+const ManualCallsScreen = ({ route, navigation }) => {
     const [inputValue, setInputValue] = useState('9999999999');
+    const { referencia } = route.params;
 
-    const triggerCall = () => {
+    triggerCall = () => {
         // Check for perfect 10 digit length
         if (inputValue.length != 10) {
             alert('Please insert correct contact number');
@@ -18,8 +19,11 @@ function ManualCallsScreen({ navigation }) {
             };
             // Make a call
             call(args).catch(console.error);
+        } else {
+            navigation.push('Menú', { referencia: referencia })
         }
     }
+
     return (
         <View style={[pantalla.base, { alignItems: 'center' }]}>
             <Text style={[texto.subtitulo, { top: 80, fontSize: 30 }]}>VENTANA LLAMADA</Text>
@@ -56,6 +60,5 @@ function ManualCallsScreen({ navigation }) {
 
     );
 }
-
 
 export default ManualCallsScreen;

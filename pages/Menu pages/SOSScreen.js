@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { texto, botones, pantalla } from '../../styles';
 
-function SOSScreen({ navigation }) {
+const SOSScreen =({ route, navigation })=> {
   const [timesPressed, setTimesPressed] = useState(0);
+  const {referencia} = route.params;
 
   if (timesPressed == 3) {
     //navigation.push('Llamando')
-    navigation.navigate('Llamando', {numero: '911'})
+    navigation.navigate('Llamando', {numero: '911', referencia})
   } else if (timesPressed > 0) {
     //
   }

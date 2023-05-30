@@ -11,6 +11,10 @@ const Call_SOS = ({ route, navigation }) => {
     const [changeIcon2, setChangeIcon2] = useState(false);
 
     const {numero} = route.params;
+    const {referencia} = route.params;
+
+    //console.log(numero)
+    //console.log(referencia)
 
     return (
         <View style={[pantalla.base, { alignItems: 'center' }]}>
@@ -28,7 +32,7 @@ const Call_SOS = ({ route, navigation }) => {
             />
             <TouchableOpacity
                 style={botones.colgar}
-                onPress={() => navigation.push('Menú')}>
+                onPress={() => navigation.push('Menú', {referencia: referencia})}>
                 <Icon
                     name={'call-end'}
                     style={{

@@ -34,7 +34,7 @@ const MenuScreen = ({ route, navigation }) => {
 
   const { referencia } = route.params;
   //console.log(referencia);
-  const [nombreCompleto, setNombreCompleto] = useState('');
+  /*const [nombreCompleto, setNombreCompleto] = useState('');
   const [email, setEmail] = useState('');
   const [edad, setEdad] = useState('');
   const [genero, setGenero] = useState('');
@@ -43,7 +43,7 @@ const MenuScreen = ({ route, navigation }) => {
   const [municipio, setMunicipio] = useState('');
   const [uidAuth, setUidAuth] = useState('');
   const [uidFireStore, setUidFireStore] = useState('');
-  const [tipoUsuario, setTipoUsuario] = useState('');
+  const [tipoUsuario, setTipoUsuario] = useState('');*/
 
   const [userData, setUserData] = useState('');
 
@@ -100,7 +100,7 @@ const MenuScreen = ({ route, navigation }) => {
       <View >
         <TouchableOpacity
           style={[botones.menu, { right: 80 }]}
-          onPress={() => navigation.push('Menú SOS')}>
+          onPress={() => navigation.push('Menú SOS', { referencia: referencia })}>
           <MaterialCommunityIcons
             name="car-emergency"
             size={60}
@@ -111,7 +111,7 @@ const MenuScreen = ({ route, navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[botones.menu, { left: 80, bottom: 179 }]}
-          onPress={() => navigation.push('Menú Contacts')}>
+          onPress={() => navigation.push('Menú Contacts', { referencia: referencia })}>
           <Foundation
             name="torsos-all"
             size={60}
@@ -122,7 +122,7 @@ const MenuScreen = ({ route, navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[botones.menu, { right: 80, bottom: 160 }]}
-          onPress={() => navigation.push('Menú Calls')}>
+          onPress={() => navigation.push('Menú Calls', { referencia: referencia })}>
           <Feather
             name="phone-call"
             size={60}
@@ -133,7 +133,8 @@ const MenuScreen = ({ route, navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[botones.menu, { left: 80, bottom: 340 }]}
-          onPress={() => navigation.push('Menú Medicine')}>
+          //onPress={() => navigation.push('Menú Medicine')}>
+          onPress={() => navigation.push('Menú Medicine', { referencia: referencia })}>
           <Icon
             name={'test-bottle'}
             color="white"
@@ -151,7 +152,7 @@ const MenuScreen = ({ route, navigation }) => {
           name="account-box"
           size={80}
           color="black"
-        //onPress={() => navigation.push('Dificultades')}
+          onPress={() => navigation.push('Pruebas', { referencia: referencia })}
         />
       </SafeAreaView>
       <View style={{ position: 'absolute', alignSelf: 'flex-start', bottom: 12, right: 100, alignItems: 'center' }}>
