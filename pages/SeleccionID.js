@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Button } from 'react-native';
 import { texto, botones, pantalla } from '../styles';
 import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 //FIREBASE
 import { getAuth } from 'firebase/auth';
@@ -40,30 +41,31 @@ const SeleccionID = ({ route, navigation }) => {
     };
 
     return (
-        <ScrollView>
-            <View style={pantalla.base}>
-                <View>
-                    <Text style={[texto.titulo]}> TIPO DE USUARIO </Text>
-                    <Text style={[texto.subtitulo, { marginTop: 50 }]}>Selecciona el tipo de usuario quien utilizará la aplicación</Text>
-                </View>
-
-                <TouchableOpacity
-                    style={[botones.usuarios, { marginTop: 40 }]}
-                    onPress={() => handleActualizacionUsuario({ tipoUsuario: 'Adulto Mayor' })}>
-                    <MaterialIcons name="elderly" size={60} color="white" />
-                    <Text style={[texto.boton, { marginTop: 15 }, { fontSize: 16 }]}>Adulto mayor</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={[botones.usuarios, { marginTop: 40 }]}
-                    onPress={() => handleActualizacionUsuario({ tipoUsuario: 'Cuidador' })}>
-                    <MaterialIcons name="elderly" size={60} color="white" />
-                    <Text style={[texto.boton, { marginTop: 15 }, { fontSize: 16 }]}>   Cuidador   </Text>
-                </TouchableOpacity>
-
+        <View style={pantalla.base}>
+            <View >
+                <Text style={[texto.titulo]}> TIPO DE USUARIO </Text>
+                <Text style={[texto.subtitulo, { marginTop: 50 }]}>Selecciona el tipo de usuario quien utilizará la aplicación</Text>
             </View>
-        </ScrollView>
+
+            <TouchableOpacity
+                style={[botones.usuarios, { marginTop: 40 }]}
+                onPress={() => handleActualizacionUsuario({ tipoUsuario: 'Adulto Mayor' })}>
+                <MaterialIcons name="accessible" size={60} color="white" />
+                <Text style={[texto.boton, { marginTop: 15 }, { fontSize: 16 }]}>Adulto mayor</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                style={[botones.usuarios, { marginTop: 40 }]}
+                onPress={() => handleActualizacionUsuario({ tipoUsuario: 'Cuidador' })}>
+                
+                <MaterialCommunityIcons name="face-man" size={70} color="white" />
+                <Text style={[texto.boton, { marginTop: 15 }, { fontSize: 16 }]}>   Cuidador   </Text>
+            </TouchableOpacity>
+
+        </View>
     );
 }
 
 export default SeleccionID;
+
+//<MaterialIcons name="directions-walk" size={60} color="white" />

@@ -96,7 +96,7 @@ const DificultadesScreen = ({ route, navigation }) => {
           <TouchableOpacity  //navigation.push('Menú')}
             onPress={() => navigation.push('Menú', { referencia: referencia })}
           >
-            <Text style={[botones.texto, { marginBottom: 15 }]}>Continuar   →</Text>
+            <Text style={[botones.texto, { marginBottom: 15, marginLeft: 130 }]}>Continuar   →</Text>
           </TouchableOpacity>
         </View>
 

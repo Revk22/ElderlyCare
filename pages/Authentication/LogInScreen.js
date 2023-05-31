@@ -66,14 +66,15 @@ function HomeScreen({ navigation }) {
       <Text style={texto.titulo}>ELDERLY CARE</Text>
       <Image style={texto.imagen} source={require('../../assets/logo.png')} />
 
+
+      <Text style={texto.texto}>Correo electronico</Text>
+      <TextInput
+        style={texto.escribir}
+        placeholder="Email"
+        value={email}
+        onChangeText={text => setEmail(text)}
+      />
       <View>
-        <Text style={texto.texto}>Correo electronico</Text>
-        <TextInput
-          style={texto.escribir}
-          placeholder="Email"
-          value={email}
-          onChangeText={text => setEmail(text)}
-        />
         <Text style={texto.texto}>Contraseña</Text>
         <TextInput
           style={texto.escribir}
@@ -84,7 +85,7 @@ function HomeScreen({ navigation }) {
         />
         <Ionicons
           name={showPassword ? 'eye-outline' : 'eye-off-outline'}
-          style={{ position: 'absolute', left: 220, top: 125, fontSize: 30 }}
+          style={{ position: 'absolute', left: 225, top: 42, fontSize: 30 }}
           onPress={() => setShowPassword(!showPassword)} />
       </View>
 

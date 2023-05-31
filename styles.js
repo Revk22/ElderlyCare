@@ -54,7 +54,7 @@ const texto = StyleSheet.create({
         height: 35,
         width: 270,
         backgroundColor: '#DAE4EC',
-        borderRadius: 20,
+        borderRadius: 12,
         paddingLeft: 20
     },
     boton: {

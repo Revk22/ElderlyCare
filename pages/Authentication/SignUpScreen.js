@@ -78,7 +78,7 @@ export default function SignUp({ navigation }) {
                     />
                     <Ionicons
                         name={showPassword ? 'eye-outline' : 'eye-off-outline'}
-                        style={{ position: 'absolute', left: 220, top: 38, fontSize: 30 }}
+                        style={{ position: 'absolute', left: 225, top: 42, fontSize: 30 }}
                         onPress={() => setShowPassword(!showPassword)} />
                 </View>
                 <View>
@@ -92,7 +92,7 @@ export default function SignUp({ navigation }) {
                     />
                     <Ionicons
                         name={showPassword2 ? 'eye-outline' : 'eye-off-outline'}
-                        style={{ position: 'absolute', left: 220, top: 38, fontSize: 30 }}
+                        style={{ position: 'absolute', left: 225, top: 42, fontSize: 30 }}
                         onPress={() => setShowPassword2(!showPassword2)} />
                 </View>
             </View>
