@@ -53,7 +53,7 @@ function HomeScreen({ navigation }) {
         //console.log(referencia);
         //console.log(user);
         //navigation.navigate('Menú'); //original
-        navigation.navigate('Menú', { referencia: uid }); //prueba
+        navigation.navigate('Menú', { referencia: email }); //prueba
       })
       .catch(error => {
         console.log(error)

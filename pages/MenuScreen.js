@@ -14,7 +14,7 @@ import { Entypo } from '@expo/vector-icons';
 import { getAuth } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../firebase/firebaseConfig';
-import { getFirestore, getDoc, doc } from 'firebase/firestore';
+import { getFirestore, getDoc, doc, collection, query, where, getDocs } from 'firebase/firestore';
 
 const MenuScreen = ({ route, navigation }) => {
   const [currentDate, setCurrentDate] = useState('');
@@ -33,21 +33,11 @@ const MenuScreen = ({ route, navigation }) => {
   const db = getFirestore();
 
   const { referencia } = route.params;
-  //console.log(referencia);
-  /*const [nombreCompleto, setNombreCompleto] = useState('');
-  const [email, setEmail] = useState('');
-  const [edad, setEdad] = useState('');
-  const [genero, setGenero] = useState('');
-  const [fechaNacimiento, setFechaNacimiento] = useState('');
-  const [estado, setEstado] = useState('');
-  const [municipio, setMunicipio] = useState('');
-  const [uidAuth, setUidAuth] = useState('');
-  const [uidFireStore, setUidFireStore] = useState('');
-  const [tipoUsuario, setTipoUsuario] = useState('');*/
+  //const { emailRef } = route.params;
 
   const [userData, setUserData] = useState('');
 
-  useEffect(() => {
+  /*useEffect(() => {
     const obtenerDatosUsuario = async () => {
       try {
         const docRef = doc(db, 'users', referencia);
@@ -63,32 +53,77 @@ const MenuScreen = ({ route, navigation }) => {
     };
 
     obtenerDatosUsuario();
-  }, [referencia]);
+  }, [referencia]);*/
 
-  /*
-  const obtenerDatosUsuario = async () => {
-    try {
-      const userDocRef = doc(db, 'users', referencia);
-      const docSnap = await getDoc(userDocRef);
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        setNombreCompleto(data.displayName);
-        setEmail(data.email);
-        setEdad(data.edad);
-        setGenero(data.genero);
-        setFechaNacimiento(data.fechaNacimiento);
-        setEstado(data.estado);
-        setMunicipio(data.municipio);
-        setTipoUsuario(data.tipoUsuario);
-        setUidAuth(data.uidAuth);
-        setUidFireStore(data.uidFireStore);
+  useEffect(() => {
+    const obtenerDatosUsuario = async () => {
+      try {
+        //
+        // Verificar si el parámetro referencia es un email
+        if (typeof referencia === 'string' && referencia.includes('@')) {//if (referencia.includes('@')) {
+
+          // Hacer algo con el email
+          //console.log('La referencia es un email:', referencia);
+
+          const q = query(collection(db, 'users'), where('email', '==', referencia));
+          const querySnapshot = await getDocs(q);
+
+          if (querySnapshot.empty) {
+            console.log('No se encontró ningún documento con ese email');
+            return;
+          }
+
+          // Recorrer los resultados de la consulta
+          querySnapshot.forEach(doc => {
+            // Obtener los datos del documento encontrado
+            const userData = doc.data();
+            //console.log('Datos del usuario:', userData);
+            setUserData(userData);
+          });
+
+          ////////////////////
+          /*usersCollection.where('email', '==', userEmail).get()
+            .then(querySnapshot => {
+              if (querySnapshot.empty) {
+                console.log('No se encontró ningún documento con ese email');
+                return;
+              }
+    
+              // Recorrer los resultados de la consulta
+              querySnapshot.forEach(doc => {
+                // Obtener los datos del documento encontrado
+                const userData = doc.data();
+                console.log('Datos del usuario:', userData);
+              });
+            })
+            .catch(error => {
+              console.log('Error al buscar el documento:', error);
+              // Maneja el error de alguna manera adecuada
+            });*/
+        } else {
+          // Hacer algo con el ID
+          //console.log('La referencia es un ID:', referencia);
+          //const obtenerDatosUsuario = async () => {
+          // try {
+          const docRef = doc(db, 'users', referencia);
+          const result = await getDoc(docRef);
+          if (result.exists()) {
+            //console.log("Resutlado: ", result.data());
+            const data = result.data();
+            setUserData(data);
+          }
+        }
+      } catch (error) {
+        console.error('Error al obtener los datos del usuario:', error);
       }
-    } catch (error) {
-      console.error('Error al obtener los datos del usuario:', error);
-    }
-  };
-  obtenerDatosUsuario();
-}, [referencia]);*/
+    };
+
+    obtenerDatosUsuario();
+
+    // Resto del código del useEffect
+    // ...
+
+  }, [referencia]);
 
   return (
     <View style={pantalla.base}>

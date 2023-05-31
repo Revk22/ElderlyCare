@@ -123,7 +123,7 @@ import { Entypo } from '@expo/vector-icons';
 import { getAuth } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../../firebase/firebaseConfig';
-import { getFirestore, getDoc, doc } from 'firebase/firestore';
+import { getFirestore, getDoc, doc, collection, query, where, getDocs } from 'firebase/firestore';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const Pruebas = ({ route, navigation }) => {
@@ -137,7 +137,7 @@ const Pruebas = ({ route, navigation }) => {
 
     const [userData, setUserData] = useState('');
 
-    useEffect(() => {
+    /*useEffect(() => {
         const obtenerDatosUsuario = async () => {
             try {
                 const docRef = doc(db, 'users', referencia);
@@ -146,6 +146,44 @@ const Pruebas = ({ route, navigation }) => {
                     console.log("Resutlado: ", result.data());
                     const data = result.data();
                     setUserData(data);
+                }
+            } catch (error) {
+                console.error('Error al obtener los datos del usuario:', error);
+            }
+        };
+
+        obtenerDatosUsuario();
+    }, [referencia]);*/
+
+    useEffect(() => {
+        const obtenerDatosUsuario = async () => {
+            try {
+                // Verificar si el parámetro referencia es un email
+                if (typeof referencia === 'string' && referencia.includes('@')) {//if (referencia.includes('@')) {
+
+                    // Hacer algo con el email    
+                    const q = query(collection(db, 'users'), where('email', '==', referencia));
+                    const querySnapshot = await getDocs(q);
+
+                    if (querySnapshot.empty) {
+                        console.log('No se encontró ningún documento con ese email');
+                        return;
+                    }
+
+                    // Recorrer los resultados de la consulta
+                    querySnapshot.forEach(doc => {
+                        // Obtener los datos del documento encontrado
+                        const userData = doc.data();
+                        setUserData(userData);
+                    });
+                } else {
+                    // Hacer algo con el ID
+                    const docRef = doc(db, 'users', referencia);
+                    const result = await getDoc(docRef);
+                    if (result.exists()) {
+                        const data = result.data();
+                        setUserData(data);
+                    }
                 }
             } catch (error) {
                 console.error('Error al obtener los datos del usuario:', error);
@@ -178,11 +216,17 @@ const Pruebas = ({ route, navigation }) => {
                         {userData && userData.fechaNacimiento}{'\n'}
                         {'\n'}{'\n'}
                         Genero{'\n'}
-                        {userData && userData.genero}{'\n'}
+                        {userData && userData.genero}
                         {'\n'}{'\n'}
-                        Padecimiento{'\n'}
-                        {userData && userData.idDificultadTitle}{'\n'}
-                        {'\n'}{'\n'}
+
+                        {userData && userData.idDificultadTitle ? (
+                            <>
+                                Padecimiento:{'\n'}
+                                {userData.idDificultadTitle}
+                                {'\n'}{'\n'}{'\n'}
+                            </>
+                        ) : null}
+                       
                         Estado{'\n'}
                         {userData && userData.estado}{'\n'}
                         {'\n'}{'\n'}

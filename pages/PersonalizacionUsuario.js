@@ -31,6 +31,7 @@ function IngresarDatos({ navigation }) {
 
                 console.log('UID:', userUid);
                 console.log('Email:', userEmail);
+                //console.log(user);
                 setEmail(userEmail);
                 setUid(userUid);
             } else {
