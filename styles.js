@@ -104,7 +104,7 @@ const botones = StyleSheet.create({
         justifyContent: 'center', 
         backgroundColor: '#F41C1C',
         borderRadius: 120,
-        top: 380
+        top: 500
     },
     menu: {
         alignItems: 'center',

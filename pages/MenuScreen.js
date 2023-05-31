@@ -127,14 +127,13 @@ const MenuScreen = ({ route, navigation }) => {
 
   return (
     <View style={pantalla.base}>
-
       <View style={[pantalla.frame, { flexDirection: "row", justifyContent: "center", alignItems: 'center' }]}>
         <Entypo name="stopwatch" size={75} color="black" />
         <Text style={[{ fontSize: 50 }]}> {currentDate}  </Text>
       </View>
-      <View >
+      <View style={{marginTop: 50}}>
         <TouchableOpacity
-          style={[botones.menu, { right: 80 }]}
+          style={[botones.menu, { right: 90 }]}
           onPress={() => navigation.push('Menú SOS', { referencia: referencia })}>
           <MaterialCommunityIcons
             name="car-emergency"
@@ -145,7 +144,7 @@ const MenuScreen = ({ route, navigation }) => {
           <Text style={texto.boton}>Botón de pánico</Text><Text style={texto.boton}>para emergencias</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[botones.menu, { left: 80, bottom: 179 }]}
+          style={[botones.menu, { left: 90, bottom: 179 }]}
           onPress={() => navigation.push('Menú Contacts', { referencia: referencia })}>
           <Foundation
             name="torsos-all"
@@ -156,7 +155,7 @@ const MenuScreen = ({ route, navigation }) => {
           <Text style={texto.boton}>Contactos</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[botones.menu, { right: 80, bottom: 160 }]}
+          style={[botones.menu, { right: 90, bottom: 160 }]}
           onPress={() => navigation.push('Menú Calls', { referencia: referencia })}>
           <Feather
             name="phone-call"
@@ -167,7 +166,7 @@ const MenuScreen = ({ route, navigation }) => {
           <Text style={texto.boton}>Llamadas</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[botones.menu, { left: 80, bottom: 340 }]}
+          style={[botones.menu, { left: 90, bottom: 340 }]}
           //onPress={() => navigation.push('Menú Medicine')}>
           onPress={() => navigation.push('Menú Medicine', { referencia: referencia })}>
           <Icon
@@ -180,20 +179,21 @@ const MenuScreen = ({ route, navigation }) => {
 
       </View>
 
-      <View style={[pantalla.frame, { position: 'absolute', bottom: 0, marginBottom: 5 }]}></View>
+      <View style={[pantalla.frame, { position: 'absolute', bottom: 0, marginBottom: 11, height: 125 }]}></View>
 
-      <SafeAreaView style={{ position: 'absolute', alignSelf: 'flex-start', bottom: 10, left: 30 }}>
+      <SafeAreaView style={{ position: 'absolute', alignSelf: 'flex-start', bottom: 20, left: 15 }}>
         <MaterialIcons
-          name="account-box"
-          size={80}
-          color="black"
+          name="account-circle"
+          size={100}
+          color="#333"
+          //style={{borderWidth: 2, borderColor: 'black', borderRadius: 60, padding: 0}}
           onPress={() => navigation.push('Pruebas', { referencia: referencia })}
         />
       </SafeAreaView>
-      <View style={{ position: 'absolute', alignSelf: 'flex-start', bottom: 12, right: 100, alignItems: 'center' }}>
-        <Text style={texto.menu}>Nombre Completo</Text>
+      <View style={{ position: 'absolute', alignSelf: 'flex-start', bottom: 30, left: 130}}>
+        <Text style={[texto.menu, {fontWeight: 'bold'}]}>Nombre Completo</Text>
         <Text style={texto.menu}>{userData && userData.displayName}</Text>
-        <Text style={texto.menu}>Correo de Usuario</Text>
+        <Text style={[texto.menu, {fontWeight: 'bold'}]}>Correo de Usuario</Text>
         <Text style={texto.menu}>{userData && userData.email}</Text>
 
       </View>

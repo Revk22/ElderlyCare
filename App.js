@@ -25,7 +25,7 @@ import MedicineScreen from './pages/Menu pages/MedicineScreen';
 import SignUp from './pages/Authentication/SignUpScreen';
 import LogIn from './pages/Authentication/LogInScreen';
 
-import Pruebas from './pages/SinUsoTemporal-Pruebas/Pruebas.js';
+import Pruebas from './pages/Menu pages/Pruebas.js';
 
 const Stack = createStackNavigator();
 //const Menu = createStackNavigator();
